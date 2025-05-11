@@ -1,0 +1,94 @@
+/* App.css */
+
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Left Panel (Editor) */
+.editor-panel {
+  width: 50%;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+}
+
+.prompt-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prompt-box input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.prompt-box button {
+  padding: 8px 16px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.prompt-box button:hover {
+  background-color: #005ea6;
+}
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Right Panel (Diagram) */
+.diagram-panel {
+  width: 50%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+}
+
+.diagram-panel h2 {
+  margin-bottom: 10px;
+}
+
+.diagram-box {
+  width: 100%;
+  height: 600px; /* Increase height for better visibility */
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.json-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 6px 12px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
