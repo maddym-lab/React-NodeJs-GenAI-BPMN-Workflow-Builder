@@ -10,7 +10,7 @@ var fs = require('fs');
 var path = require('path');
 
 const { GoogleGenAI } = require("@google/genai");
-const ai = new GoogleGenAI({ apiKey: "AIzaSyBjZ36X4cpVRxYRb1NKjZY5fZ7kbGJXVZ8" });
+const ai = new GoogleGenAI({ apiKey: "<yourapikey>" });
 
 // Prompt template
   const formatJsonPrompt = (input) => `
