@@ -4,7 +4,7 @@ var router = express.Router();
 const { OpenAI } = require('openai');
 const openai = new OpenAI({
   //apiKey: process.env.OPENAI_API_KEY,
-  apiKey: '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'
+  apiKey: '<yourapikey>'
 });
 
 // Prompt template
