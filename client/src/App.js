@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Editor from '@monaco-editor/react';
 import BpmnJS from 'bpmn-js';
-//import axios from 'axios';
 import './App.css';
-import { generateWorkflowJson, convertToBpmn } from './Api';
+import { generateWorkflowJson, convertToBpmn } from './Api-Gateway';
 
 const defaultJson = {
   workflow: {
@@ -91,8 +90,6 @@ function App() {
     try {
       setError(null);
       const parsed = typeof jsonInput === 'string' ? JSON.parse(jsonInput) : jsonInput;
-      //const urlBpmn = `http://localhost:3001/${model}/convert-to-bpmn`;
-      //const { data } = await axios.post(urlBpmn, parsed);
       const data = await convertToBpmn(model, parsed, shouldWriteToFile);
       console.log("Received BPMN XML:", data.bpmnXml);
       //to clear previous contents and helps in avoiding bjs-container & associated dom elements being loaded twice
@@ -107,19 +104,11 @@ function App() {
 
   const handleEditorChange = async (value) => {
     setJsonValue(value);
-    try {
-      const parsed = typeof jsonInput === 'string' ? JSON.parse(value) : value;
-      const data = await convertToBpmn(model, parsed);
-      console.log("BPMN file saved to:", data.filePath);
-    } catch (err) {
-      console.error("Error saving BPMN file:", err);
-    }
+    renderDiagram(value);
   };  
   
   const handlePromptSubmit = async () => {
     try {
-      //const urlJson = `http://localhost:3001/${model}/generate-workflow-json`;
-      //const { data } = await axios.post(urlJson, { prompt });
       const data = await generateWorkflowJson(model, prompt);
       const newJson = JSON.stringify(data, null, 2);
       setJsonValue(newJson); // this will trigger BPMN update

@@ -4,13 +4,15 @@ const BpmnModdle = require('bpmn-moddle');
 const { layoutProcess } = require('bpmn-auto-layout');
 // Import the utility function
 const { writeBpmnFile } = require('../utils/fileWriter');
+const dotenv = require('dotenv')
+dotenv.config();
 
 var XMLBuilder = require('fast-xml-parser');
 var fs = require('fs');
 var path = require('path');
 
 const { GoogleGenAI } = require("@google/genai");
-const ai = new GoogleGenAI({ apiKey: "AIzaSyBjZ36X4cpVRxYRb1NKjZY5fZ7kbGJXVZ8" });
+const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_GEMINI_API_KEY });
 
 // Prompt template
   const formatJsonPrompt = (input) => `

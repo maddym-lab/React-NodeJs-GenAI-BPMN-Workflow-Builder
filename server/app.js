@@ -6,7 +6,6 @@ var logger = require('morgan');
 var cors = require("cors");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 var openAIRouter = require("./routes/openai");
 var geminiAIRouter = require("./routes/gemini");
@@ -25,7 +24,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
 app.use("/openai", openAIRouter);
 app.use("/gemini", geminiAIRouter);
