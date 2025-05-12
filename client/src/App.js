@@ -161,7 +161,7 @@ function App() {
         </div>
 
         <div className="json-header">
-          <h2>Workflow JSON</h2>
+          <h2>Workflow JSON</h2>(click on Update BPMN Viewer to show changes)
           <button onClick={() => renderDiagram(jsonValue)} className="button">
             Update BPMN Viewer
           </button>
